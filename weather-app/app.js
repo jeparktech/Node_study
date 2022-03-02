@@ -22,9 +22,12 @@ const geoURL = 'https://api.mapbox.com/geocoding/v5/mapbox.places/Los%20Angeles.
 request({url: geoURL, json: true}, (error, response) => {
     if (error) {
         console.log('error occured')
+    } else if (response.body.featues.length == 0) {
+        console.log('can not find the location')
+    } else {
+        const feature = response.body.features[0]
+        const latitude = feature.center[1]
+        const longitude = feature.center[0]
+        console.log(`lat: ${latitude}, long: ${longitude}`)
     }
-    const feature = response.body.features[0]
-    const latitude = feature.center[1]
-    const longitude = feature.center[0]
-    console.log(`lat: ${latitude}, long: ${longitude}`)
 })
