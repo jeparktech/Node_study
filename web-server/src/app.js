@@ -21,7 +21,7 @@ app.use(express.static(publicDirectoryPath))
 
 app.get('', (req, res) => {
     res.render('index', {
-        title: 'Weather',
+        title: 'Weather Weather',
         name: 'Jeongwon Park',
     })
 })
@@ -98,8 +98,8 @@ app.get('*', (req, res) => {
 
 
 // start up the server
-app.listen(3000, () => {
-    console.log('Server is up on port 3000.')
+app.listen(8080, () => {
+    console.log('Server is up on port 8080.')
 })
 
 
